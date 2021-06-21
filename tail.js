@@ -27,6 +27,7 @@ const tail = (arr) => {
 	return arr.slice(1, arr.length);
 };
 
+// TESTS
 original = [1, 2, 3, 4, 5];
 result = tail(original);
 assertEqual(result[0], 2);
