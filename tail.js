@@ -6,28 +6,37 @@ const assertEqual = function (actual, expected) {
 	}
 };
 
-const tail = (array) => {
-	let result = [];
+/* ORIGINAL VERSION */
+// const tail = (arr) => {
+// 	let result = [];
 
-	if (array.length > 1) {
-		for (let i = 1; i < array.length; i++) {
-			result.push(array[i]);
-		}
-	} else {
-		// return empty array if only 1 element in array
-		return result;
-	}
+// 	if (arr.length > 1) {
+// 		for (let i = 1; i < arr.length; i++) {
+// 			result.push(arr[i]);
+// 		}
+// 	} else {
+// 		// return empty array if only 1 element in array
+// 		return result;
+// 	}
 
-	return result;
+// 	return result;
+// };
+
+/* REFACTORED VERSION */
+const tail = (arr) => {
+	return arr.slice(1, arr.length);
 };
 
-result = tail([1, 2, 3, 4, 5]);
+original = [1, 2, 3, 4, 5];
+result = tail(original);
 assertEqual(result[0], 2);
-console.log(tail([1, 2, 3, 4, 5]));
-console.log(tail([1]));
-console.log(tail([]));
-console.log();
-
-const words = ['Yo Yo', 'Lighthouse', 'Labs'];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3);
+assertEqual(result.length, 4);
+assertEqual(original.length, 5);
+//
+empty = tail([]);
+assertEqual(empty.length, 0);
+assertEqual(empty[0], undefined);
+//
+oneElement = tail([1]);
+assertEqual(oneElement.length, 0);
+assertEqual(oneElement[0], undefined);
