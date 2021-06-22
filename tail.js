@@ -24,7 +24,7 @@ const assertEqual = function (actual, expected) {
 
 /* REFACTORED VERSION */
 const tail = (arr) => {
-	return arr.slice(1, arr.length);
+	return arr.slice(1);
 };
 
 // TESTS
