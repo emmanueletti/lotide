@@ -41,9 +41,7 @@ const assertEqual = function(actual, expected) {
 const letterPositions = (string) => {
   const output ={}
   const processed = string.split(' ').join('').toLowerCase();
-
   for (let i = 0; i < processed.length; i++) {
-    
     if (output[processed[i]]) {
       output[processed[i]].push(i)
     } else {

@@ -1,5 +1,4 @@
 const assertEqual = function(actual, expected) {
-
   try {
     if (actual === expected) {
       console.log(`✅ Assertion Passed: [${actual}] === [${expected}]`);
@@ -10,8 +9,6 @@ const assertEqual = function(actual, expected) {
     console.log('😬 Something broke');
     console.log(`\t ${error.name}: ${error.message}`);
   }
-
- 
 };
 
 
