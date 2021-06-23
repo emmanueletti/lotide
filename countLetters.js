@@ -22,8 +22,9 @@ const assertEqual = function(actual, expected) {
 
 const countLetters = (string) =>  {
   const output = {};
-  const uniformCase = string.toLowerCase();
-  for (const char of uniformCase) {
+  //remove spaces and lower case the string
+  const processed = string.split(' ').join('').toLowerCase();
+  for (const char of processed) {
     if (output[char]) {
       output[char] += 1;
     } else {
