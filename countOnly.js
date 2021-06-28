@@ -1,8 +1,8 @@
-const countOnly = (allItems, itemsToCount) => {
+const countOnly = (allItems, itemToCount) => {
   const output = {};
 
   for (const items of allItems) {
-    if (itemsToCount[items]) {
+    if (itemToCount[items]) {
       if (output[items]) {
         output[items] += 1;
       } else {

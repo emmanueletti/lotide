@@ -21,21 +21,20 @@
 // 	return output;
 // };
 
-/* REFACTOR - expand number of levels via recursion */
-// does array have a sub array
+/* REFACTOR */
+// recursively flatten out the array
 
 const flatten = (arr) => {
-  const output = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
-      for (let j = 0; j < arr[i].length; j++) {
-        output.push(arr[i][j]);
-      }
+  let output = [];
+  for (const element of arr) {
+    if (Array.isArray(element)) {
+      output = output.concat(flatten(element));
     } else {
-      output.push(arr[i]);
+      output.push(element);
     }
   }
   return output;
 };
 
+// console.log(flatten([1, [2, [3, 4, 5, [[[6]]]]], 7, 8, 9, [10]]));
 module.exports = flatten;
