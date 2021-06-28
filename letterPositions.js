@@ -1,27 +1,3 @@
-const assertArraysEqual = (actual, expected) => {
-  try {
-    const everyActualEquals = actual.every((element, index) => element === expected[index]);
-	  const everyExpectedEquals = expected.every((element, index) => element === actual[index]);
-
-      if (everyActualEquals && everyExpectedEquals) {
-      console.log(`✅ Assertion Passed: [${actual}] === [${expected}]`);
-    } else {
-      console.log(`🛑 Assertion Failed: [${actual}] !== [${expected}]`);
-    }
-  } catch (error) {
-    console.log('😬 Something broke')
-    console.log(`\t ${error.name}: ${error.message}`)
-  }
-};
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🛑 Assertion Failed: [${actual}] !== [${expected}]`);
-  }
-};
-
 /* PROBLEM */
 // document the index positions that letter occurs at
 
@@ -35,28 +11,21 @@ const assertEqual = function(actual, expected) {
 
 /* PSEUDOCODE */
 
-
 /* INITIAL VERSION */
 
 const letterPositions = (string) => {
-  const output ={}
+  const output = {};
   const processed = string.split(' ').join('').toLowerCase();
   for (let i = 0; i < processed.length; i++) {
     if (output[processed[i]]) {
-      output[processed[i]].push(i)
+      output[processed[i]].push(i);
     } else {
       output[processed[i]] = [i];
     }
   }
-  return output
-}
+  return output;
+};
 
 /* REFACTOR */
 
-
-/* TEST */
-const result = letterPositions('hello')
-
-assertArraysEqual(result['e'], [1])
-assertArraysEqual(result['l'], [2,3])
-assertEqual(result['x'], undefined)
+module.exports = letterPositions;

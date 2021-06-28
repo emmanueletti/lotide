@@ -1,12 +1,3 @@
-const assertArraysEqual = (arr1, arr2) => {
-	const equal = arr1.every((element, index) => element === arr2[index]);
-	if (equal) {
-		console.log(`✅ Assertion Passed: [${arr1}] === [${arr2}]`);
-	} else {
-		console.log(`🛑 Assertion Failed: [${arr1}] !== [${arr2}]`);
-	}
-};
-
 // Implement without which will return a subset of a given array, removing unwanted elements.
 
 // This function should take in a source array and a itemsToRemove array. It should return a new array with only those elements from source that are not present in the itemsToRemove array.
@@ -60,20 +51,7 @@ end function
 /* REFACTOR */
 // return a new array of elements that are NOT included in the items to remove array
 const without = (source, itemsToRemove) => {
-	return source.filter((element) => !itemsToRemove.includes(element));
+  return source.filter((element) => !itemsToRemove.includes(element));
 };
 
-//TEST
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
-assertArraysEqual(without(['1', '2', '3'], [1, 2, '3']), ['1', '2']);
-assertArraysEqual(without([], []), []);
-assertArraysEqual(without(['1', '2', '3'], []), ['1', '2', '3']);
-assertArraysEqual(without(['1', '2', '3', '4'], ['2']), ['1', '3', '4']);
-assertArraysEqual(without([], ['2']), []);
-assertArraysEqual(without(['1', '2', '3', '4'], ['2']), ['1', '3', '4']);
-assertArraysEqual(without(['1', '2', true, '3', '4'], [true]), ['1', '2', '3', '4']);
-
-const words = ['hello', 'world', 'lighthouse'];
-without(words, ['lighthouse']); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-assertArraysEqual(words, ['hello', 'world', 'lighthouse']);
+module.exports = without;

@@ -1,11 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🛑 Assertion Failed: [${actual}] !== [${expected}]`);
-  }
-};
-
 /* PROBLEM */
 // count number of letters in a string
 
@@ -20,31 +12,35 @@ const assertEqual = function(actual, expected) {
 
 /* INITIAL SOLUTION */
 
-const countLetters = (string) =>  {
-  const output = {};
-  //remove spaces and lower case the string
-  const processed = string.split(' ').join('').toLowerCase();
-  for (const char of processed) {
-    if (output[char]) {
-      output[char] += 1;
-    } else {
-      output[char] = 1;
-    }
-  }
-  return output;
-
-};
+// const countLetters = (string) => {
+//   const output = {};
+//   //remove spaces and lower case the string
+//   const processed = string.split(' ').join('').toLowerCase();
+//   for (const char of processed) {
+//     if (output[char]) {
+//       output[char] += 1;
+//     } else {
+//       output[char] = 1;
+//     }
+//   }
+//   return output;
+// };
 
 /* REFACTOR */
 
+const countLetters = (string) => {
+  //remove spaces and lower case the string
+  const processed = string.toLowerCase().split(' ').join('');
 
-// TEST
-const result = countLetters('lighthouse labs');
+  // use reduce to create histogram
+  return processed.split('').reduce((acc, current) => {
+    if (acc[current]) {
+      acc[current]++;
+      return acc;
+    }
+    acc[current] = 1;
+    return acc;
+  }, {});
+};
 
-assertEqual(result['l'], 2);
-assertEqual(result['s'], 2);
-assertEqual(result['x'], undefined);
-console.log('--case test---');
-
-const casedResult = countLetters('Lighthouse labs');
-assertEqual(casedResult['l'], 2);
+module.exports = countLetters;
