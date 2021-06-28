@@ -8,7 +8,7 @@ describe('Head Function', () => {
     // expect(head([1, 2, 3])).to.equal(1);
   });
 
-  it(`returnes '5' for ['5']`, () => {
+  it(`returns '5' for ['5']`, () => {
     assert.strictEqual(head([5]), 5);
   });
 

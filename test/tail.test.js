@@ -1,17 +1,17 @@
-const assertEqual = require('../assertEqual');
+const { expect } = require('chai');
 const tail = require('../tail');
 
-// TESTS
-original = [1, 2, 3, 4, 5];
-result = tail(original);
-assertEqual(result[0], 2);
-assertEqual(result.length, 4);
-assertEqual(original.length, 5);
-//
-empty = tail([]);
-assertEqual(empty.length, 0);
-assertEqual(empty[0], undefined);
-//
-oneElement = tail([1]);
-assertEqual(oneElement.length, 0);
-assertEqual(oneElement[0], undefined);
+describe(`Tail Function`, () => {
+  it(`returns [2,3,4] for [1,2,3,4]`, () => {
+    expect(tail([1, 2, 3, 4])).to.deep.equal([2, 3, 4]);
+  });
+
+  it(`returns [] for []`, () => {
+    expect(tail([])).to.deep.equal([]);
+  });
+
+  it('return [] for [1]', () => {
+    expect(tail([1])).to.deep.equal([]);
+  });
+  //
+});
